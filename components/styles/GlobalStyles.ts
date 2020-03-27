@@ -4,6 +4,8 @@ import { normalize } from 'styled-normalize';
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
+  @import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap");
+
   *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -37,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     line-height: ${props => props.theme.lineHeight?.normal};
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    font-family: 'Quicksand', sans-serif;
     font-size: ${props => props.theme.fontSize?.[16]};
     font-weight: 400;
   }

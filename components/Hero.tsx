@@ -32,8 +32,6 @@ const HeroStyled = styled.main`
         width: 15rem;
         height: 15rem;
         border-radius: ${props => props.theme.borderRadius?.default};
-        border: ${props => props.theme.borderWidth?.[4]} solid
-          ${props => props.theme.colors?.blue.primary};
         display: block;
 
         img {
@@ -78,9 +76,6 @@ const Hero = (): JSX.Element => {
     <HeroStyled>
       <Container>
         <div className="hero-wrapper">
-          <div className="corona">
-            <img src="/corona19.svg" alt="covid-19" />
-          </div>
           <div className="content">
             <h1>Covid-19 Stats</h1>
             {error ? (

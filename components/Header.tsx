@@ -26,10 +26,6 @@ const HeaderStyled = styled.header`
     color: inherit;
     text-decoration: none;
   }
-
-  /* .home {
-    font-weight: bold;
-  } */
 `;
 
 const Header = (): JSX.Element => (
@@ -38,7 +34,7 @@ const Header = (): JSX.Element => (
       <div className="header-wrapper">
         <div className="home">
           <Link href="/">
-            <a>Home</a>
+            <a>Covid-19 Stats</a>
           </Link>
         </div>
 
