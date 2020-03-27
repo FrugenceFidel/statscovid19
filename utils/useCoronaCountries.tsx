@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 interface ICorona {
+  country?: string;
   cases?: number;
   todayCases?: number;
   deaths?: number;
@@ -14,8 +15,8 @@ interface ICorona {
   };
 }
 
-const useCorona = (url: string) => {
-  const [corona, setCorona] = useState<ICorona>({});
+const useCoronaCountries = (url: string) => {
+  const [corona, setCorona] = useState<ICorona[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -35,4 +36,4 @@ const useCorona = (url: string) => {
   return { loading, error, corona };
 };
 
-export default useCorona;
+export default useCoronaCountries;

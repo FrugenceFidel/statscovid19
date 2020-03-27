@@ -54,10 +54,10 @@ const Hero = (): JSX.Element => {
                   Global cases{' '}
                   <span>
                     (updated{' '}
-                    {/* {moment(corona.updated)
+                    {moment(corona.updated)
                       .startOf('day')
-                      .fromNow()} */}
-                    {moment(corona.updated).calendar()})
+                      .fromNow()}
+                    )
                   </span>
                 </h1>
 
