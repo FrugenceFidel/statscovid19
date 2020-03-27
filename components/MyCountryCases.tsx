@@ -7,7 +7,7 @@ import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
 
 const CountryStyled = styled.div`
-  padding: ${props => props.theme.spacing?.s64} 0;
+  padding: ${props => props.theme.spacing?.s32} 0;
 
   .other {
     margin: 0 auto;
@@ -19,7 +19,13 @@ const CountryStyled = styled.div`
     border-radius: ${props => props.theme.borderRadius?.default};
     background: ${props => props.theme.colors?.green.primary};
     color: #fff;
-    max-width: ${props => props.theme.spacing?.s224};
+    width: ${props => props.theme.spacing?.s224};
+  }
+
+  @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
+    & {
+      padding: ${props => props.theme.spacing?.s64} 0;
+    }
   }
 `;
 

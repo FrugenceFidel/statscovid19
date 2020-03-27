@@ -10,7 +10,7 @@ const HeroStyled = styled.main`
   color: white;
 
   .hero-wrapper {
-    padding: ${props => props.theme.spacing?.s32} 0;
+    padding: ${props => props.theme.spacing?.s48} 0;
 
     @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
       & {
@@ -54,12 +54,13 @@ const Hero = (): JSX.Element => {
                   Global cases{' '}
                   <span>
                     (updated{' '}
-                    {moment(corona.updated)
+                    {/* {moment(corona.updated)
                       .startOf('day')
-                      .fromNow()}
-                    )
+                      .fromNow()} */}
+                    {moment(corona.updated).calendar()})
                   </span>
                 </h1>
+
                 <GlobalStats>
                   <div className="stats confirmed">
                     <p className="title">confirmed</p>
