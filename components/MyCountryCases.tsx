@@ -7,7 +7,8 @@ import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
 
 const CountryStyled = styled.div`
-  padding: ${props => props.theme.spacing?.s32} 0;
+  padding: ${props => props.theme.spacing?.s32} 0
+    ${props => props.theme.spacing?.s48};
 
   .other {
     margin: 0 auto;
