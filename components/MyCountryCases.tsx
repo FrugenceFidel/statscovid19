@@ -19,7 +19,7 @@ const CountryStyled = styled.div`
     border-radius: ${props => props.theme.borderRadius?.default};
     background: ${props => props.theme.colors?.green.primary};
     color: #fff;
-    width: 300px;
+    max-width: ${props => props.theme.spacing?.s224};
   }
 `;
 
