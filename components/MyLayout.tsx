@@ -15,8 +15,8 @@ const MyLayout: FunctionComponent = props => (
         <Meta />
         <Header />
         {props.children}
-        {/* <footer>
-          <div>
+        <footer>
+          <div style={{ background: 'purple' }}>
             Icons made by{' '}
             <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
               Freepik
@@ -26,7 +26,7 @@ const MyLayout: FunctionComponent = props => (
               flaticon
             </a>
           </div>
-        </footer> */}
+        </footer>
       </StyledMyLayout>
     </>
   </ThemeProvider>

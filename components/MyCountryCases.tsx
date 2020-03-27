@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import useCorona from '../utils/useCorona';
 import { numberWithCommas } from '../utils/helpers';
 import Container from './styles/Container';
+import CountryStats from './styles/CountryStats';
 
 const CountryStyled = styled.div`
   padding: ${props => props.theme.spacing?.s64} 0;
@@ -19,61 +20,6 @@ const CountryStyled = styled.div`
     background: ${props => props.theme.colors?.green.primary};
     color: #fff;
     width: 300px;
-  }
-`;
-
-const CountryStats = styled.div`
-  box-shadow: ${props => props.theme.boxShadow?.default};
-  border-radius: ${props => props.theme.borderRadius?.default};
-  padding: ${props => props.theme.spacing?.s8};
-  background: #fff;
-
-  .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 0.8px solid #ebebeb;
-    padding-bottom: ${props => props.theme.spacing?.s8};
-    margin-bottom: ${props => props.theme.spacing?.s8};
-
-    h2 {
-      font-size: ${props => props.theme.fontSize?.[24]};
-      margin-right: ${props => props.theme.spacing?.s16};
-    }
-
-    img {
-      width: ${props => props.theme.spacing?.s48};
-      height: ${props => props.theme.spacing?.s24};
-    }
-  }
-
-  .cases {
-    display: flex;
-    justify-content: center;
-    font-weight: 500;
-    font-size: ${props => props.theme.fontSize?.[18]};
-
-    li {
-      padding-right: ${props => props.theme.spacing?.s20};
-    }
-
-    .confirmed,
-    .confirmed-today {
-      color: ${props => props.theme.colors?.orange.primary};
-    }
-
-    .recovered {
-      color: ${props => props.theme.colors?.green.primary};
-    }
-
-    .active {
-      color: ${props => props.theme.colors?.yellow.primary};
-    }
-
-    .deaths,
-    .deaths-today {
-      color: ${props => props.theme.colors?.red.primary};
-    }
   }
 `;
 
@@ -132,9 +78,6 @@ const MyCountryCases = (): JSX.Element => {
                       {numberWithCommas(corona.todayCases)}
                     </span>
                   </li>
-                </ul>
-
-                <ul className="cases">
                   <li>
                     Deaths:{' '}
                     <span className="deaths">
@@ -147,9 +90,6 @@ const MyCountryCases = (): JSX.Element => {
                       {numberWithCommas(corona.todayDeaths)}
                     </span>
                   </li>
-                </ul>
-
-                <ul className="cases">
                   <li>
                     Active:{' '}
                     <span className="active">
