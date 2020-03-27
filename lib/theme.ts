@@ -107,8 +107,17 @@ const theme: DefaultTheme = {
     s256: '25.6rem'
   },
   colors: {
-    blue: {
-      primary: '#008DC9'
+    green: {
+      primary: '#4caf50'
+    },
+    black: {
+      primary: '#212b36'
+    },
+    orange: {
+      primary: '#f77427'
+    },
+    red: {
+      primary: '#ec314b'
     }
   }
 };
