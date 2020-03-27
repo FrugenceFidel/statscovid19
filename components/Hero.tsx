@@ -14,14 +14,14 @@ const HeroStyled = styled.main`
 
     @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
       & {
-        display: flex;
-        padding: ${props => props.theme.spacing?.s32} 0
-          ${props => props.theme.spacing?.s64};
+        padding: ${props => props.theme.spacing?.s64} 0;
       }
     }
   }
 
   .content {
+    margin: 0 auto;
+
     h1 {
       font-size: ${props => props.theme.fontSize?.[30]};
       line-height: ${props => props.theme.lineHeight?.none};

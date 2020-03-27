@@ -2,10 +2,7 @@ import styled from 'styled-components';
 
 const GlobalStats = styled.div`
   display: flex;
-
-  div:not(:last-child) {
-    margin-right: ${props => props.theme.spacing?.s20};
-  }
+  justify-content: space-between;
 
   .stats {
     text-transform: uppercase;
