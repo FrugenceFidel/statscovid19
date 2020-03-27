@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Stats = styled.div`
+const GlobalStats = styled.div`
   display: flex;
 
   div:not(:last-child) {
@@ -9,6 +9,18 @@ const Stats = styled.div`
 
   .stats {
     text-transform: uppercase;
+  }
+
+  .confirmed {
+    color: ${props => props.theme.colors?.orange.primary};
+  }
+
+  .recovered {
+    color: ${props => props.theme.colors?.green.primary};
+  }
+
+  .deaths {
+    color: ${props => props.theme.colors?.red.primary};
   }
 
   .title {
@@ -28,4 +40,4 @@ const Stats = styled.div`
   }
 `;
 
-export default Stats;
+export default GlobalStats;

@@ -15,6 +15,8 @@ Router.events.on('routeChangeError', () => {
 });
 
 const HeaderStyled = styled.header`
+  background: ${props => props.theme.colors?.green.primary};
+
   .header-wrapper {
     display: flex;
     justify-content: space-between;
@@ -25,6 +27,8 @@ const HeaderStyled = styled.header`
   a {
     color: inherit;
     text-decoration: none;
+    font-weight: 700;
+    font-size: ${props => props.theme.fontSize?.[20]};
   }
 `;
 
@@ -34,19 +38,19 @@ const Header = (): JSX.Element => (
       <div className="header-wrapper">
         <div className="home">
           <Link href="/">
-            <a>Covid-19 Stats</a>
+            <a>COVID-19 Stats</a>
           </Link>
         </div>
 
-        {/* <div>
+        <div>
           <label htmlFor="#select">
             Language:{' '}
             <select name="" id="select">
-              <option value="en">english</option>
-              <option value="en">swahili</option>
+              <option value="en">English</option>
+              <option value="en">Swahili</option>
             </select>
           </label>
-        </div> */}
+        </div>
       </div>
     </Container>
   </HeaderStyled>

@@ -5,7 +5,7 @@ import useCorona from '../utils/useCorona';
 import { numberWithCommas } from '../utils/helpers';
 import SelectCountry from './SelectCountry';
 import Container from './styles/Container';
-import Stats from './styles/Stats';
+import GlobalStats from './styles/GlobalStats';
 
 const CountryStyled = styled.div`
   padding: ${props => props.theme.spacing?.s96} 0;
@@ -67,7 +67,7 @@ const Hero = (): JSX.Element => {
                     .fromNow()}
                   )
                 </p>
-                <Stats>
+                <GlobalStats>
                   <div className="stats">
                     <p className="title">confirmed</p>
                     <p className="total">
@@ -86,7 +86,7 @@ const Hero = (): JSX.Element => {
                       {numberWithCommas(corona.deaths?.value)}
                     </p>
                   </div>
-                </Stats>
+                </GlobalStats>
               </>
             )}
           </div>
