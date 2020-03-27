@@ -116,6 +116,9 @@ const theme: DefaultTheme = {
     orange: {
       primary: '#f77427'
     },
+    yellow: {
+      primary: '#fec60d'
+    },
     red: {
       primary: '#ec314b'
     }

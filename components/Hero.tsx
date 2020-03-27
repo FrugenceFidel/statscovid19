@@ -69,7 +69,7 @@ const Hero = (): JSX.Element => {
                     <p className="title">deaths</p>
                     <p className="total">{numberWithCommas(corona.deaths)}</p>
                   </div>
-                  <div className="stats recovered">
+                  <div className="stats active">
                     <p className="title">active</p>
                     <p className="total">{numberWithCommas(corona.active)}</p>
                   </div>

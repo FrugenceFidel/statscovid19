@@ -16,6 +16,10 @@ const GlobalStats = styled.div`
     color: ${props => props.theme.colors?.green.primary};
   }
 
+  .active {
+    color: ${props => props.theme.colors?.yellow.primary};
+  }
+
   .deaths {
     color: ${props => props.theme.colors?.red.primary};
   }
