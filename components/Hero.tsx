@@ -37,9 +37,7 @@ const HeroStyled = styled.main`
 `;
 
 const Hero = (): JSX.Element => {
-  const { loading, error, corona } = useCorona(
-    'https://covid19.mathdro.id/api'
-  );
+  const { loading, error, corona } = useCorona('https://corona.lmao.ninja/all');
 
   return (
     <HeroStyled>
@@ -56,7 +54,7 @@ const Hero = (): JSX.Element => {
                   Global cases{' '}
                   <span>
                     (updated{' '}
-                    {moment(corona.lastUpdate)
+                    {moment(corona.updated)
                       .startOf('day')
                       .fromNow()}
                     )
@@ -65,20 +63,20 @@ const Hero = (): JSX.Element => {
                 <GlobalStats>
                   <div className="stats confirmed">
                     <p className="title">confirmed</p>
-                    <p className="total">
-                      {numberWithCommas(corona.confirmed?.value)}
-                    </p>
+                    <p className="total">{numberWithCommas(corona.cases)}</p>
                   </div>
                   <div className="stats deaths">
                     <p className="title">deaths</p>
-                    <p className="total">
-                      {numberWithCommas(corona.deaths?.value)}
-                    </p>
+                    <p className="total">{numberWithCommas(corona.deaths)}</p>
+                  </div>
+                  <div className="stats recovered">
+                    <p className="title">active</p>
+                    <p className="total">{numberWithCommas(corona.active)}</p>
                   </div>
                   <div className="stats recovered">
                     <p className="title">recovered</p>
                     <p className="total">
-                      {numberWithCommas(corona.recovered?.value)}
+                      {numberWithCommas(corona.recovered)}
                     </p>
                   </div>
                 </GlobalStats>

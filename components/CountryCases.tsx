@@ -62,7 +62,7 @@ const Hero = (): JSX.Element => {
               <>
                 <p className="global">
                   <span>country cases</span> ( updated{' '}
-                  {moment(corona.lastUpdate)
+                  {moment(corona.updated)
                     .startOf('day')
                     .fromNow()}
                   )
@@ -70,21 +70,17 @@ const Hero = (): JSX.Element => {
                 <GlobalStats>
                   <div className="stats">
                     <p className="title">confirmed</p>
-                    <p className="total">
-                      {numberWithCommas(corona.confirmed?.value)}
-                    </p>
+                    <p className="total">{numberWithCommas(corona.cases)}</p>
                   </div>
                   <div className="stats">
                     <p className="title">recovered</p>
                     <p className="total">
-                      {numberWithCommas(corona.recovered?.value)}
+                      {numberWithCommas(corona.recovered)}
                     </p>
                   </div>
                   <div className="stats">
                     <p className="title">deaths</p>
-                    <p className="total">
-                      {numberWithCommas(corona.deaths?.value)}
-                    </p>
+                    <p className="total">{numberWithCommas(corona.deaths)}</p>
                   </div>
                 </GlobalStats>
               </>

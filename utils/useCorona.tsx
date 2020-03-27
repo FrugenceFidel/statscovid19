@@ -7,16 +7,11 @@ interface ICountry {
 }
 
 interface ICorona {
-  confirmed?: {
-    value: number;
-  };
-  recovered?: {
-    value: number;
-  };
-  deaths?: {
-    value: number;
-  };
-  lastUpdate?: string;
+  cases?: number;
+  recovered?: number;
+  active?: number;
+  deaths?: number;
+  updated?: number;
   countries?: ICountry[];
 }
 
