@@ -8,10 +8,16 @@ interface ICountry {
 
 interface ICorona {
   cases?: number;
+  todayCases?: number;
+  deaths?: number;
+  todayDeaths?: number;
   recovered?: number;
   active?: number;
-  deaths?: number;
+  critical?: number;
   updated?: number;
+  countryInfo?: {
+    flag: string;
+  };
   countries?: ICountry[];
 }
 

@@ -42,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Quicksand', sans-serif;
     font-size: ${props => props.theme.fontSize?.[16]};
     color: ${props => props.theme.colors?.black.primary};
+    background: #F3F7F9;
     font-weight: 400;
   }
 
