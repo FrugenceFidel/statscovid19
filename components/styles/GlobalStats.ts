@@ -26,6 +26,7 @@ const GlobalStats = styled.div`
 
   .title {
     font-size: ${props => props.theme.fontSize?.[14]};
+    font-weight: 700;
   }
 
   .total {
