@@ -27,8 +27,9 @@ const HeaderStyled = styled.header`
   a {
     color: inherit;
     text-decoration: none;
-    font-weight: 700;
     font-size: ${props => props.theme.fontSize?.[20]};
+    font-family: 'Righteous', cursive;
+    text-transform: uppercase;
   }
 `;
 
@@ -42,7 +43,7 @@ const Header = (): JSX.Element => (
           </Link>
         </div>
 
-        <div>
+        {/* <div>
           <label htmlFor="#select">
             Language:{' '}
             <select name="" id="select">
@@ -50,7 +51,7 @@ const Header = (): JSX.Element => (
               <option value="en">Swahili</option>
             </select>
           </label>
-        </div>
+        </div> */}
       </div>
     </Container>
   </HeaderStyled>
