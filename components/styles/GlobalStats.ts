@@ -1,18 +1,32 @@
 import styled from 'styled-components';
 
-const Stats = styled.div`
+const GlobalStats = styled.div`
   display: flex;
-
-  div:not(:last-child) {
-    margin-right: ${props => props.theme.spacing?.s20};
-  }
+  justify-content: space-between;
 
   .stats {
     text-transform: uppercase;
   }
 
+  .confirmed {
+    color: ${props => props.theme.colors?.orange.primary};
+  }
+
+  .recovered {
+    color: ${props => props.theme.colors?.green.primary};
+  }
+
+  .active {
+    color: ${props => props.theme.colors?.yellow.primary};
+  }
+
+  .deaths {
+    color: ${props => props.theme.colors?.red.primary};
+  }
+
   .title {
     font-size: ${props => props.theme.fontSize?.[14]};
+    font-weight: 700;
   }
 
   .total {
@@ -28,4 +42,4 @@ const Stats = styled.div`
   }
 `;
 
-export default Stats;
+export default GlobalStats;

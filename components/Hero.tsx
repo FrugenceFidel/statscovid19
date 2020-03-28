@@ -3,119 +3,84 @@ import styled from 'styled-components';
 import useCorona from '../utils/useCorona';
 import { numberWithCommas } from '../utils/helpers';
 import Container from './styles/Container';
-import Stats from './styles/Stats';
+import GlobalStats from './styles/GlobalStats';
 
 const HeroStyled = styled.main`
-  background: url('/background.svg'),
-    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
   color: white;
 
   .hero-wrapper {
-    padding: ${props => props.theme.spacing?.s32} 0
-      ${props => props.theme.spacing?.s32};
+    padding: ${props => props.theme.spacing?.s48} 0;
 
     @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
       & {
-        display: flex;
-        padding: ${props => props.theme.spacing?.s32} 0
-          ${props => props.theme.spacing?.s80};
-      }
-    }
-  }
-
-  .corona {
-    display: none;
-
-    @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
-      & {
-        background: white;
-        width: 15rem;
-        height: 15rem;
-        border-radius: ${props => props.theme.borderRadius?.default};
-        border: ${props => props.theme.borderWidth?.[4]} solid
-          ${props => props.theme.colors?.blue.primary};
-        display: block;
-
-        img {
-          border-radius: ${props => props.theme.borderRadius?.default};
-          padding: ${props => props.theme.spacing?.s8};
-          max-width: 100%;
-        }
+        padding: ${props => props.theme.spacing?.s64} 0;
       }
     }
   }
 
   .content {
+    margin: 0 auto;
+
     h1 {
       font-size: ${props => props.theme.fontSize?.[30]};
       line-height: ${props => props.theme.lineHeight?.none};
+      padding-bottom: ${props => props.theme.spacing?.s20};
       text-transform: uppercase;
-    }
-
-    .global {
-      padding: ${props => props.theme.spacing?.s8} 0;
-      font-size: ${props => props.theme.fontSize?.[20]};
 
       span {
-        text-transform: uppercase;
-      }
-    }
-
-    @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
-      & {
-        margin-left: ${props => props.theme.spacing?.s32};
+        text-transform: lowercase;
+        font-size: ${props => props.theme.fontSize?.[16]};
       }
     }
   }
 `;
 
 const Hero = (): JSX.Element => {
-  const { loading, error, corona } = useCorona(
-    'https://covid19.mathdro.id/api'
-  );
+  const { loading, error, corona } = useCorona('https://corona.lmao.ninja/all');
 
   return (
     <HeroStyled>
       <Container>
         <div className="hero-wrapper">
-          <div className="corona">
-            <img src="/corona19.svg" alt="covid-19" />
-          </div>
           <div className="content">
-            <h1>Covid-19 Stats</h1>
             {error ? (
               <p>error</p>
             ) : loading ? (
               <p>Loading...</p>
             ) : (
               <>
-                <p className="global">
-                  <span>Global cases</span> ( updated{' '}
-                  {moment(corona.lastUpdate)
-                    .startOf('day')
-                    .fromNow()}
-                  )
-                </p>
-                <Stats>
-                  <div className="stats">
+                <h1>
+                  Global cases{' '}
+                  <span>
+                    (updated{' '}
+                    {moment(corona.updated)
+                      .startOf('day')
+                      .fromNow()}
+                    )
+                  </span>
+                </h1>
+
+                <GlobalStats>
+                  <div className="stats confirmed">
                     <p className="title">confirmed</p>
-                    <p className="total">
-                      {numberWithCommas(corona.confirmed?.value)}
-                    </p>
+                    <p className="total">{numberWithCommas(corona.cases)}</p>
                   </div>
-                  <div className="stats">
+                  <div className="stats deaths">
+                    <p className="title">deaths</p>
+                    <p className="total">{numberWithCommas(corona.deaths)}</p>
+                  </div>
+                  <div className="stats active">
+                    <p className="title">active</p>
+                    <p className="total">{numberWithCommas(corona.active)}</p>
+                  </div>
+                  <div className="stats recovered">
                     <p className="title">recovered</p>
                     <p className="total">
-                      {numberWithCommas(corona.recovered?.value)}
+                      {numberWithCommas(corona.recovered)}
                     </p>
                   </div>
-                  <div className="stats">
-                    <p className="title">deaths</p>
-                    <p className="total">
-                      {numberWithCommas(corona.deaths?.value)}
-                    </p>
-                  </div>
-                </Stats>
+                </GlobalStats>
               </>
             )}
           </div>

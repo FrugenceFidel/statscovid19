@@ -15,6 +15,8 @@ Router.events.on('routeChangeError', () => {
 });
 
 const HeaderStyled = styled.header`
+  background: ${props => props.theme.colors?.green.primary};
+
   .header-wrapper {
     display: flex;
     justify-content: space-between;
@@ -25,11 +27,10 @@ const HeaderStyled = styled.header`
   a {
     color: inherit;
     text-decoration: none;
+    font-size: ${props => props.theme.fontSize?.[20]};
+    font-family: 'Righteous', cursive;
+    text-transform: uppercase;
   }
-
-  /* .home {
-    font-weight: bold;
-  } */
 `;
 
 const Header = (): JSX.Element => (
@@ -38,7 +39,7 @@ const Header = (): JSX.Element => (
       <div className="header-wrapper">
         <div className="home">
           <Link href="/">
-            <a>Home</a>
+            <a>COVID-19 Stats</a>
           </Link>
         </div>
 
@@ -46,8 +47,8 @@ const Header = (): JSX.Element => (
           <label htmlFor="#select">
             Language:{' '}
             <select name="" id="select">
-              <option value="en">english</option>
-              <option value="en">swahili</option>
+              <option value="en">English</option>
+              <option value="en">Swahili</option>
             </select>
           </label>
         </div> */}

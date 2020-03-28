@@ -1,11 +1,11 @@
 import { NextPage } from 'next';
 import Hero from '../components/Hero';
-import CountryCases from '../components/CountryCases';
+import MyCountryCases from '../components/MyCountryCases';
 
 const Home: NextPage = () => (
   <>
     <Hero />
-    <CountryCases />
+    <MyCountryCases />
   </>
 );
 
