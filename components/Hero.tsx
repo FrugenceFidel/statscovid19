@@ -4,6 +4,8 @@ import useCorona from '../utils/useCorona';
 import { numberWithCommas } from '../utils/helpers';
 import Container from './styles/Container';
 import GlobalStats from './styles/GlobalStats';
+import { useLanguage } from '../utils/languageContext';
+import data from '../utils/data';
 
 const HeroStyled = styled.main`
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
@@ -38,6 +40,17 @@ const HeroStyled = styled.main`
 
 const Hero = (): JSX.Element => {
   const { loading, error, corona } = useCorona('https://corona.lmao.ninja/all');
+  const { language } = useLanguage();
+  const {
+    error: err,
+    loading: load,
+    globalCases,
+    updated,
+    confirmed,
+    deaths,
+    recovered,
+    active
+  } = data[language];
 
   return (
     <HeroStyled>
@@ -45,15 +58,15 @@ const Hero = (): JSX.Element => {
         <div className="hero-wrapper">
           <div className="content">
             {error ? (
-              <p>error</p>
+              <p>{err}</p>
             ) : loading ? (
-              <p>Loading...</p>
+              <p>{load}</p>
             ) : (
               <>
                 <h1>
-                  Global cases{' '}
+                  {globalCases}{' '}
                   <span>
-                    (updated{' '}
+                    ({updated}{' '}
                     {moment(corona.updated)
                       .startOf('day')
                       .fromNow()}
@@ -63,19 +76,19 @@ const Hero = (): JSX.Element => {
 
                 <GlobalStats>
                   <div className="stats confirmed">
-                    <p className="title">confirmed</p>
+                    <p className="title">{confirmed}</p>
                     <p className="total">{numberWithCommas(corona.cases)}</p>
                   </div>
                   <div className="stats deaths">
-                    <p className="title">deaths</p>
+                    <p className="title">{deaths}</p>
                     <p className="total">{numberWithCommas(corona.deaths)}</p>
                   </div>
                   <div className="stats active">
-                    <p className="title">active</p>
+                    <p className="title">{active}</p>
                     <p className="total">{numberWithCommas(corona.active)}</p>
                   </div>
                   <div className="stats recovered">
-                    <p className="title">recovered</p>
+                    <p className="title">{recovered}</p>
                     <p className="total">
                       {numberWithCommas(corona.recovered)}
                     </p>

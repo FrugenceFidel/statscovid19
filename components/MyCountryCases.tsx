@@ -5,6 +5,8 @@ import useCorona from '../utils/useCorona';
 import { numberWithCommas } from '../utils/helpers';
 import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
+import { useLanguage } from '../utils/languageContext';
+import data from '../utils/data';
 
 const CountryStyled = styled.div`
   padding: ${props => props.theme.spacing?.s32} 0
@@ -32,6 +34,18 @@ const CountryStyled = styled.div`
 
 const MyCountryCases = (): JSX.Element => {
   const [country, setCountry] = useState('');
+  const { language } = useLanguage();
+  const {
+    loading: load,
+    confirmed,
+    confirmedToday,
+    deaths,
+    deathsToday,
+    recovered,
+    active,
+    critical,
+    otherCountries
+  } = data[language];
 
   useEffect(() => {
     async function getCountry() {
@@ -65,7 +79,7 @@ const MyCountryCases = (): JSX.Element => {
             {error ? (
               <p>{error}</p>
             ) : loading ? (
-              <p>Loading...</p>
+              <p>{load}</p>
             ) : (
               <CountryStats>
                 <div className="title">
@@ -74,43 +88,43 @@ const MyCountryCases = (): JSX.Element => {
                 </div>
                 <ul className="cases">
                   <li>
-                    Confirmed:{' '}
+                    {confirmed}:{' '}
                     <span className="confirmed">
                       {numberWithCommas(corona.cases)}
                     </span>
                   </li>
                   <li>
-                    Today Confirmed:{' '}
+                    {confirmedToday}:{' '}
                     <span className="confirmed-today">
                       {numberWithCommas(corona.todayCases)}
                     </span>
                   </li>
                   <li>
-                    Deaths:{' '}
+                    {deaths}:{' '}
                     <span className="deaths">
                       {numberWithCommas(corona.deaths)}
                     </span>
                   </li>
                   <li>
-                    Today Deaths:{' '}
+                    {deathsToday}:{' '}
                     <span className="deaths-today">
                       {numberWithCommas(corona.todayDeaths)}
                     </span>
                   </li>
                   <li>
-                    Active:{' '}
+                    {active}:{' '}
                     <span className="active">
                       {numberWithCommas(corona.active)}
                     </span>
                   </li>
                   <li>
-                    Critical:{' '}
+                    {critical}:{' '}
                     <span className="critical">
                       {numberWithCommas(corona.critical)}
                     </span>
                   </li>
                   <li>
-                    Recovered:{' '}
+                    {recovered}:{' '}
                     <span className="recovered">
                       {numberWithCommas(corona.recovered)}
                     </span>
@@ -120,7 +134,7 @@ const MyCountryCases = (): JSX.Element => {
             )}
           </div>
           <Link href="/countries">
-            <a className="other">Other Countries  👉</a>
+            <a className="other">{otherCountries}  👉</a>
           </Link>
         </CountryStyled>
       </Container>
