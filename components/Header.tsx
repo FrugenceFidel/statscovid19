@@ -1,8 +1,10 @@
+import { SyntheticEvent } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import styled from 'styled-components';
 import Container from './styles/Container';
+import { useLanguage } from '../utils/languageContext';
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start();
@@ -33,28 +35,42 @@ const HeaderStyled = styled.header`
   }
 `;
 
-const Header = (): JSX.Element => (
-  <HeaderStyled>
-    <Container>
-      <div className="header-wrapper">
-        <div className="home">
-          <Link href="/">
-            <a>COVID-19 Stats</a>
-          </Link>
-        </div>
+const Header = (): JSX.Element => {
+  const { language, setLanguage } = useLanguage();
 
-        {/* <div>
-          <label htmlFor="#select">
-            Language:{' '}
-            <select name="" id="select">
-              <option value="en">English</option>
-              <option value="en">Swahili</option>
-            </select>
-          </label>
-        </div> */}
-      </div>
-    </Container>
-  </HeaderStyled>
-);
+  const changeLanguage = (e: SyntheticEvent): void => {
+    const { value } = e.target as HTMLInputElement;
+    setLanguage(value);
+  };
+
+  return (
+    <HeaderStyled>
+      <Container>
+        <div className="header-wrapper">
+          <div className="home">
+            <Link href="/">
+              <a>COVID-19 Stats</a>
+            </Link>
+          </div>
+
+          <div>
+            <label htmlFor="#select">
+              Language:{' '}
+              <select
+                name=""
+                id="select"
+                value={language}
+                onChange={changeLanguage}
+              >
+                <option value="en">English</option>
+                <option value="sw">Swahili</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </Container>
+    </HeaderStyled>
+  );
+};
 
 export default Header;
