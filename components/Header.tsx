@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import styled from 'styled-components';
 import Container from './styles/Container';
 import { useLanguage } from '../utils/languageContext';
+import data from '../utils/data';
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start();
@@ -37,6 +38,7 @@ const HeaderStyled = styled.header`
 
 const Header = (): JSX.Element => {
   const { language, setLanguage } = useLanguage();
+  const { covidStats, lang, english, swahili } = data[language];
 
   const changeLanguage = (e: SyntheticEvent): void => {
     const { value } = e.target as HTMLInputElement;
@@ -55,21 +57,21 @@ const Header = (): JSX.Element => {
         <div className="header-wrapper">
           <div className="home">
             <Link href="/">
-              <a>COVID-19 Stats</a>
+              <a>{covidStats}</a>
             </Link>
           </div>
 
           <div>
             <label htmlFor="#select">
-              Language:{' '}
+              {lang}:{' '}
               <select
                 name=""
                 id="select"
                 value={language}
                 onChange={changeLanguage}
               >
-                <option value="en">English</option>
-                <option value="sw">Swahili</option>
+                <option value="en">{english}</option>
+                <option value="sw">{swahili}</option>
               </select>
             </label>
           </div>

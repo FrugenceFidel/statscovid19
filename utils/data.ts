@@ -1,7 +1,35 @@
-const data = {
+interface IWords {
+  covidStats: string;
+  lang: string;
+  english: string;
+  swahili: string;
+  developedBy: string;
+  dataFrom: string;
+  sourceCode: string;
+  here: string;
+  error: string;
+  loading: string;
+  globalCases: string;
+  updated: string;
+  confirmed: string;
+  deaths: string;
+  active: string;
+  recovered: string;
+  critical: string;
+  confirmedToday: string;
+  deathsToday: string;
+  otherCountries: string;
+  statsByCountries: string;
+}
+
+interface IData {
+  [key: string]: IWords;
+}
+
+const data: IData = {
   en: {
     covidStats: 'COVID-19 Stats',
-    language: 'Language',
+    lang: 'Language',
     english: 'English',
     swahili: 'Swahili',
     developedBy: 'Developed by',
@@ -24,7 +52,7 @@ const data = {
   },
   sw: {
     covidStats: 'Taarifa za COVID-19',
-    language: 'Lugha',
+    lang: 'Lugha',
     english: 'Kingereza',
     swahili: 'Kiswahili',
     developedBy: 'Imetegenezwa na',
