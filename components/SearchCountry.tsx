@@ -9,7 +9,7 @@ const SearchCountryStyled = styled.div`
   .search-wrapper {
     padding: ${props => props.theme.spacing?.s32} 0;
 
-    h2 {
+    .stats-title {
       font-size: ${props => props.theme.fontSize?.[20]};
       text-align: center;
       text-transform: capitalize;
@@ -30,21 +30,32 @@ const SearchCountryStyled = styled.div`
 
     .countries-stats {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
       margin-top: ${props => props.theme.spacing?.s20};
 
       .country-stats {
-        flex: calc(50% - 1rem) 1;
+        flex: calc(100%) 1;
         margin-bottom: 2rem;
       }
+    }
 
-      .country-stats:nth-child(odd) {
-        margin-right: 1rem;
-      }
+    @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
+      & {
+        .countries-stats {
+          justify-content: space-between;
 
-      .country-stats:nth-child(even) {
-        margin-left: 1rem;
+          .country-stats {
+            flex: calc(50% - 1rem) 1;
+          }
+
+          .country-stats:nth-child(odd) {
+            margin-right: 1rem;
+          }
+
+          .country-stats:nth-child(even) {
+            margin-left: 1rem;
+          }
+        }
       }
     }
   }
@@ -82,7 +93,7 @@ const SearchCountry = (): JSX.Element => {
     <SearchCountryStyled>
       <Container>
         <div className="search-wrapper">
-          <h2>Stats by countries</h2>
+          <h2 className="stats-title">Stats by countries</h2>
           <input
             type="search"
             placeholder="Search by a country e.g Tanzania"
