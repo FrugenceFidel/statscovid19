@@ -44,7 +44,8 @@ const MyCountryCases = (): JSX.Element => {
     recovered,
     active,
     critical,
-    otherCountries
+    otherCountries,
+    error: err
   } = data[language];
 
   useEffect(() => {
@@ -77,7 +78,7 @@ const MyCountryCases = (): JSX.Element => {
         <CountryStyled>
           <div className="content">
             {error ? (
-              <p>{error}</p>
+              <p>{err}</p>
             ) : loading ? (
               <p>{load}</p>
             ) : (

@@ -4,6 +4,8 @@ import useCoronaCountries, { ICorona } from '../utils/useCoronaCountries';
 import { numberWithCommas } from '../utils/helpers';
 import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
+import { useLanguage } from '../utils/languageContext';
+import dataDefn from '../utils/data';
 
 const SearchCountryStyled = styled.div`
   .search-wrapper {
@@ -64,6 +66,21 @@ const SearchCountryStyled = styled.div`
 const SearchCountry = (): JSX.Element => {
   const [keyword, setKeyword] = useState('');
   const [data, setData] = useState<ICorona[]>([]);
+  const { language } = useLanguage();
+  const {
+    loading: load,
+    confirmed,
+    confirmedToday,
+    deaths,
+    deathsToday,
+    recovered,
+    active,
+    critical,
+    statsByCountries,
+    searchByCountries,
+    error: err
+  } = dataDefn[language];
+
   const { loading, error, corona } = useCoronaCountries(
     'https://corona.lmao.ninja/countries?sort=todayDeaths'
   );
@@ -93,16 +110,16 @@ const SearchCountry = (): JSX.Element => {
     <SearchCountryStyled>
       <Container>
         <div className="search-wrapper">
-          <h2 className="stats-title">Stats by countries</h2>
+          <h2 className="stats-title">{statsByCountries}</h2>
           <input
             type="search"
-            placeholder="Search by a country e.g Tanzania"
+            placeholder={searchByCountries}
             onChange={handleChange}
           />
           {error ? (
-            <p>error</p>
+            <p>{err}</p>
           ) : loading ? (
-            <p>Loading...</p>
+            <p>{load}</p>
           ) : (
             <div className="countries-stats">
               {data.map(rona => (
@@ -114,43 +131,43 @@ const SearchCountry = (): JSX.Element => {
                     </div>
                     <ul className="cases">
                       <li>
-                        Confirmed:{' '}
+                        {confirmed}:{' '}
                         <span className="confirmed">
                           {numberWithCommas(rona.cases)}
                         </span>
                       </li>
                       <li>
-                        Today Confirmed:{' '}
+                        {confirmedToday}:{' '}
                         <span className="confirmed-today">
                           {numberWithCommas(rona.todayCases)}
                         </span>
                       </li>
                       <li>
-                        Deaths:{' '}
+                        {deaths}:{' '}
                         <span className="deaths">
                           {numberWithCommas(rona.deaths)}
                         </span>
                       </li>
                       <li>
-                        Today Deaths:{' '}
+                        {deathsToday}:{' '}
                         <span className="deaths-today">
                           {numberWithCommas(rona.todayDeaths)}
                         </span>
                       </li>
                       <li>
-                        Active:{' '}
+                        {active}:{' '}
                         <span className="active">
                           {numberWithCommas(rona.active)}
                         </span>
                       </li>
                       <li>
-                        Critical:{' '}
+                        {critical}:{' '}
                         <span className="critical">
                           {numberWithCommas(rona.critical)}
                         </span>
                       </li>
                       <li>
-                        Recovered:{' '}
+                        {recovered}:{' '}
                         <span className="recovered">
                           {numberWithCommas(rona.recovered)}
                         </span>

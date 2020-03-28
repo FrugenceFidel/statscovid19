@@ -20,6 +20,7 @@ interface IWords {
   deathsToday: string;
   otherCountries: string;
   statsByCountries: string;
+  searchByCountries: string;
 }
 
 interface IData {
@@ -48,7 +49,8 @@ const data: IData = {
     confirmedToday: 'Today Confirmed',
     deathsToday: 'Today Deaths',
     otherCountries: 'Other Countries',
-    statsByCountries: 'Stats by countries'
+    statsByCountries: 'Stats by countries',
+    searchByCountries: 'Search by a country e.g Tanzania'
   },
   sw: {
     covidStats: 'Taarifa za COVID-19',
@@ -71,7 +73,8 @@ const data: IData = {
     confirmedToday: 'Wamethibitika Leo',
     deathsToday: 'Vifo vya Leo',
     otherCountries: 'Nchi zingine',
-    statsByCountries: 'Taarifa kwa nchi'
+    statsByCountries: 'Taarifa kwa nchi',
+    searchByCountries: 'Tafuta kwa nchi, mfano Tanzania'
   }
 };
 

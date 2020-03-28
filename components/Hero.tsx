@@ -68,6 +68,7 @@ const Hero = (): JSX.Element => {
                   <span>
                     ({updated}{' '}
                     {moment(corona.updated)
+                      .locale(language)
                       .startOf('day')
                       .fromNow()}
                     )
