@@ -1,8 +1,11 @@
+import { SyntheticEvent } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import styled from 'styled-components';
 import Container from './styles/Container';
+import { useLanguage } from '../utils/languageContext';
+import data from '../utils/data';
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start();
@@ -33,28 +36,49 @@ const HeaderStyled = styled.header`
   }
 `;
 
-const Header = (): JSX.Element => (
-  <HeaderStyled>
-    <Container>
-      <div className="header-wrapper">
-        <div className="home">
-          <Link href="/">
-            <a>COVID-19 Stats</a>
-          </Link>
-        </div>
+const Header = (): JSX.Element => {
+  const { language, setLanguage } = useLanguage();
+  const { covidStats, lang, english, swahili } = data[language];
 
-        {/* <div>
-          <label htmlFor="#select">
-            Language:{' '}
-            <select name="" id="select">
-              <option value="en">English</option>
-              <option value="en">Swahili</option>
-            </select>
-          </label>
-        </div> */}
-      </div>
-    </Container>
-  </HeaderStyled>
-);
+  const changeLanguage = (e: SyntheticEvent): void => {
+    const { value } = e.target as HTMLInputElement;
+    const myLanguage = localStorage.getItem('myLanguage');
+
+    if (myLanguage) {
+      localStorage.removeItem('myLanguage');
+    }
+    localStorage.setItem('myLanguage', value);
+    setLanguage(value);
+  };
+
+  return (
+    <HeaderStyled>
+      <Container>
+        <div className="header-wrapper">
+          <div className="home">
+            <Link href="/">
+              <a>{covidStats}</a>
+            </Link>
+          </div>
+
+          <div>
+            <label htmlFor="#select">
+              {lang}:{' '}
+              <select
+                name=""
+                id="select"
+                value={language}
+                onChange={changeLanguage}
+              >
+                <option value="en">{english}</option>
+                <option value="sw">{swahili}</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </Container>
+    </HeaderStyled>
+  );
+};
 
 export default Header;

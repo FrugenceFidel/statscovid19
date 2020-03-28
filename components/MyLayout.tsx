@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
+import LanguageProvider from '../utils/languageContext';
 import theme from '../lib/theme';
 import Header from './Header';
 import Footer from './Footer';
@@ -14,9 +15,11 @@ const MyLayout: FunctionComponent = props => (
       <GlobalStyles />
       <StyledMyLayout>
         <Meta />
-        <Header />
-        {props.children}
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          {props.children}
+          <Footer />
+        </LanguageProvider>
       </StyledMyLayout>
     </>
   </ThemeProvider>

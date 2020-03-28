@@ -30,7 +30,15 @@ const GlobalStats = styled.div`
   }
 
   .total {
-    font-size: ${props => props.theme.fontSize?.[30]};
+    font-size: 2.6rem;
+  }
+
+  @media screen and (min-width: 349px) {
+    & {
+      .total {
+        font-size: ${props => props.theme.fontSize?.[30]};
+      }
+    }
   }
 
   @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
