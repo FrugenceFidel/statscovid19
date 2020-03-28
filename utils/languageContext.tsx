@@ -1,5 +1,6 @@
 import {
   useState,
+  useEffect,
   createContext,
   useContext,
   FunctionComponent,
@@ -25,7 +26,27 @@ export function createCtx<ContextType>() {
 export const [useLanguage, LanguageContextProvider] = createCtx<ILanguage>();
 
 const LanguageProvider: FunctionComponent = ({ children }) => {
-  const [language, setLanguage] = useState('sw');
+  const [language, setLanguage] = useState('en');
+
+  useEffect(() => {
+    async function getMyLanguage() {
+      const myLanguage = localStorage.getItem('myLanguage');
+      if (myLanguage) {
+        setLanguage(myLanguage);
+      } else {
+        const fetchedCountry: string | any = await fetch(
+          'https://ipapi.co/json'
+        ).then(res => res.json());
+        if (fetchedCountry && fetchedCountry.country_code === 'TZ') {
+          localStorage.setItem('myLanguage', 'sw');
+          setLanguage('sw');
+        } else {
+          setLanguage('en');
+        }
+      }
+    }
+    getMyLanguage();
+  }, []);
 
   return (
     <LanguageContextProvider value={{ language, setLanguage }}>
