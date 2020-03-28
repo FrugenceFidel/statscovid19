@@ -121,6 +121,9 @@ const theme: DefaultTheme = {
     },
     red: {
       primary: '#ec314b'
+    },
+    grey: {
+      primary: '#ebebeb'
     }
   }
 };

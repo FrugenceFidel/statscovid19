@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-interface ICorona {
+export interface ICorona {
   country?: string;
   cases?: number;
   todayCases?: number;

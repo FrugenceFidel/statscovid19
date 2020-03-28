@@ -10,7 +10,7 @@ const CountryStats = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 0.8px solid #ebebeb;
+    border-bottom: 1px solid ${props => props.theme.colors?.grey.primary};
     padding-bottom: ${props => props.theme.spacing?.s8};
     margin-bottom: ${props => props.theme.spacing?.s8};
 
