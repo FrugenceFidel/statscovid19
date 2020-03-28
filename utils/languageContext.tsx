@@ -41,6 +41,7 @@ const LanguageProvider: FunctionComponent = ({ children }) => {
           localStorage.setItem('myLanguage', 'sw');
           setLanguage('sw');
         } else {
+          localStorage.setItem('myLanguage', 'en');
           setLanguage('en');
         }
       }

@@ -37,10 +37,15 @@ const HeaderStyled = styled.header`
 
 const Header = (): JSX.Element => {
   const { language, setLanguage } = useLanguage();
-  console.log(language);
 
   const changeLanguage = (e: SyntheticEvent): void => {
     const { value } = e.target as HTMLInputElement;
+    const myLanguage = localStorage.getItem('myLanguage');
+
+    if (myLanguage) {
+      localStorage.removeItem('myLanguage');
+    }
+    localStorage.setItem('myLanguage', value);
     setLanguage(value);
   };
 
