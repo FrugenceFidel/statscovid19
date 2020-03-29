@@ -70,8 +70,9 @@ const Hero = (): JSX.Element => {
                     {moment(corona.updated)
                       .locale(language)
                       .startOf('day')
-                      .fromNow()}
-                    )
+                      .fromNow()
+                      .replace('tokea', '')}{' '}
+                    {language === 'sw' && 'yaliyopita'})
                   </span>
                 </h1>
 
