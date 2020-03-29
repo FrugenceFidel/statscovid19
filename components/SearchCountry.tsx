@@ -16,6 +16,10 @@ const SearchCountryStyled = styled.div`
       text-align: center;
       text-transform: capitalize;
       font-weight: 500;
+    }
+
+    .desc {
+      text-align: center;
       margin-bottom: ${props => props.theme.spacing?.s20};
     }
 
@@ -78,6 +82,7 @@ const SearchCountry = (): JSX.Element => {
     critical,
     statsByCountries,
     searchByCountries,
+    sortedByTDeaths,
     error: err
   } = dataDefn[language];
 
@@ -111,6 +116,7 @@ const SearchCountry = (): JSX.Element => {
       <Container>
         <div className="search-wrapper">
           <h2 className="stats-title">{statsByCountries}</h2>
+          <p className="desc">{sortedByTDeaths}</p>
           <input
             type="search"
             placeholder={searchByCountries}
