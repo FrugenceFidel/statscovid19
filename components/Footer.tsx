@@ -20,7 +20,7 @@ const FooterStyled = styled.footer`
 
 const Footer = (): JSX.Element => {
   const { language } = useLanguage();
-  const { developedBy, dataFrom, sourceCode, here } = data[language];
+  const { developedBy, dataFrom } = data[language];
 
   return (
     <FooterStyled>
@@ -33,10 +33,6 @@ const Footer = (): JSX.Element => {
           <p>
             {dataFrom}{' '}
             <a href="https://github.com/novelcovid/api">NovelCovid</a> API.
-          </p>
-          <p>
-            {sourceCode}{' '}
-            <a href="https://github.com/FrugenceFidel/statscovid19">{here}</a>
           </p>
         </div>
       </Container>

@@ -5,8 +5,6 @@ interface IWords {
   swahili: string;
   developedBy: string;
   dataFrom: string;
-  sourceCode: string;
-  here: string;
   error: string;
   loading: string;
   globalCases: string;
@@ -35,8 +33,6 @@ const data: IData = {
     swahili: 'Swahili',
     developedBy: 'Developed by',
     dataFrom: 'Data sources from',
-    sourceCode: 'Source code',
-    here: 'here',
     error: 'Error',
     loading: 'Loading...',
     globalCases: 'Global cases',
@@ -59,8 +55,6 @@ const data: IData = {
     swahili: 'Kiswahili',
     developedBy: 'Imetegenezwa na',
     dataFrom: 'Chanzo cha data kutoka kwa',
-    sourceCode: 'Chanzo cha msimbo',
-    here: 'hapa',
     error: 'Kuna tatizo jaribu baadae',
     loading: 'Inapakia...',
     globalCases: 'Idadi Ya Dunia Nzima',
