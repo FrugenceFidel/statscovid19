@@ -19,6 +19,7 @@ interface IWords {
   otherCountries: string;
   statsByCountries: string;
   searchByCountries: string;
+  sortedByTDeaths: string;
 }
 
 interface IData {
@@ -46,7 +47,8 @@ const data: IData = {
     deathsToday: 'Today Deaths',
     otherCountries: 'Other Countries',
     statsByCountries: 'Stats by countries',
-    searchByCountries: 'Search by a country e.g Tanzania'
+    searchByCountries: 'Search by a country e.g Tanzania',
+    sortedByTDeaths: "sorted by today's deaths"
   },
   sw: {
     covidStats: 'Taarifa za COVID-19',
@@ -68,7 +70,8 @@ const data: IData = {
     deathsToday: 'Vifo vya Leo',
     otherCountries: 'Nchi zingine',
     statsByCountries: 'Taarifa kwa nchi',
-    searchByCountries: 'Tafuta kwa nchi, mfano Tanzania'
+    searchByCountries: 'Tafuta kwa nchi, mfano Tanzania',
+    sortedByTDeaths: 'imepangiliwa kulingana na vifo vya leo'
   }
 };
 

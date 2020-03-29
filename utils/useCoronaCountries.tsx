@@ -21,14 +21,18 @@ const useCoronaCountries = (url: string) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    let mounted = true;
     async function getData() {
       setLoading(true);
       const data = await fetch(url)
         .then(res => res.json())
         .catch(err => setError(err));
 
-      setCorona(data);
+      if (mounted) {
+        setCorona(data);
+      }
       setLoading(false);
+      return () => (mounted = false);
     }
     getData();
   }, [url]);
