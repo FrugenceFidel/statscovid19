@@ -30,8 +30,8 @@ const data: IData = {
   en: {
     covidStats: 'COVID-19 Stats',
     lang: 'Language',
-    english: 'English',
-    swahili: 'Swahili',
+    english: 'english',
+    swahili: 'swahili',
     developedBy: 'Developed by',
     dataFrom: 'Data sources from',
     error: 'Error',
@@ -53,8 +53,8 @@ const data: IData = {
   sw: {
     covidStats: 'Taarifa za COVID-19',
     lang: 'Lugha',
-    english: 'Kingereza',
-    swahili: 'Kiswahili',
+    english: 'kingereza',
+    swahili: 'kiswahili',
     developedBy: 'Imetegenezwa na',
     dataFrom: 'Chanzo cha data kutoka kwa',
     error: 'Kuna tatizo jaribu baadae',
