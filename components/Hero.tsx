@@ -52,6 +52,22 @@ const Hero = (): JSX.Element => {
     active
   } = data[language];
 
+  const displayDate = (updatedDate: number | undefined): string => {
+    let dt = moment(updatedDate)
+      .locale(language)
+      .startOf('second')
+      .fromNow()
+      .replace('tokea', '');
+
+    if (dt.includes('dakika')) {
+      dt = `${dt} zilizopita`;
+    }
+    if (dt.includes('masaa')) {
+      dt = `${dt} yaliyopita`;
+    }
+    return dt;
+  };
+
   return (
     <HeroStyled>
       <Container>
@@ -66,13 +82,7 @@ const Hero = (): JSX.Element => {
                 <h1>
                   {globalCases}{' '}
                   <span>
-                    ({updated}{' '}
-                    {moment(corona.updated)
-                      .locale(language)
-                      .startOf('day')
-                      .fromNow()
-                      .replace('tokea', '')}{' '}
-                    {language === 'sw' && 'yaliyopita'})
+                    ({updated} {displayDate(corona.updated)})
                   </span>
                 </h1>
 
