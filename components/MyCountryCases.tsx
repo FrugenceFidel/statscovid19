@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import useCorona from '../utils/useCorona';
-import { numberWithCommas, displayDate } from '../utils/helpers';
+import { numberWithCommas } from '../utils/helpers';
 import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
 import { useLanguage } from '../utils/languageContext';
@@ -44,7 +44,6 @@ const MyCountryCases = (): JSX.Element => {
     recovered,
     active,
     critical,
-    updated,
     otherCountries,
     error: err
   } = data[language];
@@ -132,9 +131,6 @@ const MyCountryCases = (): JSX.Element => {
                     </span>
                   </li>
                 </ul>
-                <p className="updated">
-                  {updated} {displayDate(corona.updated, language)}
-                </p>
               </CountryStats>
             )}
           </div>
