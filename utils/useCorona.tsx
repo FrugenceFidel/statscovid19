@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 interface ICorona {
+  country?: string;
   cases?: number;
   todayCases?: number;
   deaths?: number;

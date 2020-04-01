@@ -33,7 +33,7 @@ const CountryStyled = styled.div`
 `;
 
 const MyCountryCases = (): JSX.Element => {
-  const [country, setCountry] = useState('');
+  const [country, setCountry] = useState('TZ');
   const { language } = useLanguage();
   const {
     loading: load,
@@ -50,18 +50,18 @@ const MyCountryCases = (): JSX.Element => {
 
   useEffect(() => {
     async function getCountry() {
-      const myCountryName = localStorage.getItem('myCountryName');
-      if (myCountryName) {
-        setCountry(myCountryName);
+      const myCountryCode = localStorage.getItem('myCountryCode');
+      if (myCountryCode) {
+        setCountry(myCountryCode);
       } else {
         const fetchedCountry: string | any = await fetch(
           'https://ipapi.co/json'
         ).then(res => res.json());
-        if (fetchedCountry && fetchedCountry.country_name) {
-          localStorage.setItem('myCountryName', fetchedCountry.country_name);
-          setCountry(fetchedCountry.country_name);
+        if (fetchedCountry && fetchedCountry.country_code) {
+          localStorage.setItem('myCountryCode', fetchedCountry.country_code);
+          setCountry(fetchedCountry.country_code);
         } else {
-          setCountry('Tanzania');
+          setCountry('TZ');
         }
       }
     }
@@ -69,7 +69,7 @@ const MyCountryCases = (): JSX.Element => {
   }, []);
 
   const { loading, error, corona } = useCorona(
-    `https://corona.lmao.ninja/countries/${country || 'Tanzania'}`
+    `https://corona.lmao.ninja/countries/${country}`
   );
 
   return (
@@ -84,7 +84,7 @@ const MyCountryCases = (): JSX.Element => {
             ) : (
               <CountryStats>
                 <div className="title">
-                  <h2>{country}</h2>
+                  <h2>{corona.country}</h2>
                   <img src={corona.countryInfo?.flag} alt={country} />
                 </div>
                 <ul className="cases">
