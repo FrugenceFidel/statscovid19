@@ -1,7 +1,7 @@
 import { useState, useEffect, SyntheticEvent } from 'react';
 import styled from 'styled-components';
 import useCoronaCountries, { ICorona } from '../utils/useCoronaCountries';
-import { numberWithCommas } from '../utils/helpers';
+import { numberWithCommas, displayDate } from '../utils/helpers';
 import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
 import { useLanguage } from '../utils/languageContext';
@@ -80,6 +80,7 @@ const SearchCountry = (): JSX.Element => {
     recovered,
     active,
     critical,
+    updated,
     statsByCountries,
     searchByCountries,
     sortedByTDeaths,
@@ -179,6 +180,9 @@ const SearchCountry = (): JSX.Element => {
                         </span>
                       </li>
                     </ul>
+                    <p className="updated">
+                      {updated} {displayDate(rona.updated, language)}
+                    </p>
                   </CountryStats>
                 </div>
               ))}
