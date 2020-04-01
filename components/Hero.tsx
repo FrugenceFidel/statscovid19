@@ -1,7 +1,6 @@
-import moment from 'moment';
 import styled from 'styled-components';
 import useCorona from '../utils/useCorona';
-import { numberWithCommas } from '../utils/helpers';
+import { numberWithCommas, displayDate } from '../utils/helpers';
 import Container from './styles/Container';
 import GlobalStats from './styles/GlobalStats';
 import { useLanguage } from '../utils/languageContext';
@@ -49,24 +48,9 @@ const Hero = (): JSX.Element => {
     confirmed,
     deaths,
     recovered,
-    active
+    active,
+    affectedCountries
   } = data[language];
-
-  const displayDate = (updatedDate: number | undefined): string => {
-    let dt = moment(updatedDate)
-      .locale(language)
-      .startOf('second')
-      .fromNow()
-      .replace('tokea', '');
-
-    if (dt.includes('dakika')) {
-      dt = `${dt} zilizopita`;
-    }
-    if (dt.includes('masaa')) {
-      dt = `${dt} yaliyopita`;
-    }
-    return dt;
-  };
 
   return (
     <HeroStyled>
@@ -82,7 +66,7 @@ const Hero = (): JSX.Element => {
                 <h1>
                   {globalCases}{' '}
                   <span>
-                    ({updated} {displayDate(corona.updated)})
+                    ({updated} {displayDate(corona.updated, language)})
                   </span>
                 </h1>
 
@@ -103,6 +87,12 @@ const Hero = (): JSX.Element => {
                     <p className="title">{recovered}</p>
                     <p className="total">
                       {numberWithCommas(corona.recovered)}
+                    </p>
+                  </div>
+                  <div className="stats affected">
+                    <p className="title">{affectedCountries}</p>
+                    <p className="total">
+                      {numberWithCommas(corona.affectedCountries)}
                     </p>
                   </div>
                 </GlobalStats>

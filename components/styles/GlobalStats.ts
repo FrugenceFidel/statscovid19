@@ -24,6 +24,14 @@ const GlobalStats = styled.div`
     color: ${props => props.theme.colors?.red.primary};
   }
 
+  .affected {
+    display: none;
+
+    @media screen and (min-width: 488px) {
+      display: block;
+    }
+  }
+
   .title {
     font-size: ${props => props.theme.fontSize?.[14]};
     font-weight: 700;
