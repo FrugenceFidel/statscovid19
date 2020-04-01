@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const CountryStats = styled.div`
   box-shadow: ${props => props.theme.boxShadow?.default};
   border-radius: ${props => props.theme.borderRadius?.default};
-  padding: ${props => props.theme.spacing?.s8}
-    ${props => props.theme.spacing?.s8} 0;
+  padding: ${props => props.theme.spacing?.s8};
   background: #fff;
 
   .title {
@@ -50,13 +49,6 @@ const CountryStats = styled.div`
     .deaths-today {
       color: ${props => props.theme.colors?.red.primary};
     }
-  }
-
-  .updated {
-    text-align: center;
-    padding: ${props => props.theme.spacing?.s8} 0;
-    font-size: ${props => props.theme.fontSize?.[14]};
-    font-weight: 500;
   }
 `;
 
