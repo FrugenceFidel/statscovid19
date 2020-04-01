@@ -48,7 +48,8 @@ const Hero = (): JSX.Element => {
     confirmed,
     deaths,
     recovered,
-    active
+    active,
+    affectedCountries
   } = data[language];
 
   return (
@@ -86,6 +87,12 @@ const Hero = (): JSX.Element => {
                     <p className="title">{recovered}</p>
                     <p className="total">
                       {numberWithCommas(corona.recovered)}
+                    </p>
+                  </div>
+                  <div className="stats affected">
+                    <p className="title">{affectedCountries}</p>
+                    <p className="total">
+                      {numberWithCommas(corona.affectedCountries)}
                     </p>
                   </div>
                 </GlobalStats>

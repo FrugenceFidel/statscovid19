@@ -16,6 +16,7 @@ interface IWords {
   critical: string;
   confirmedToday: string;
   deathsToday: string;
+  affectedCountries: string;
   otherCountries: string;
   statsByCountries: string;
   searchByCountries: string;
@@ -45,6 +46,7 @@ const data: IData = {
     critical: 'Critical',
     confirmedToday: 'Today Confirmed',
     deathsToday: 'Today Deaths',
+    affectedCountries: 'Affected Countries',
     otherCountries: 'Other Countries',
     statsByCountries: 'Stats by countries',
     searchByCountries: 'Search by a country e.g Tanzania',
@@ -68,6 +70,7 @@ const data: IData = {
     critical: 'Mahututi',
     confirmedToday: 'Waliothibitika Leo',
     deathsToday: 'Vifo vya Leo',
+    affectedCountries: 'Nchi Zilizoathiriwa',
     otherCountries: 'Nchi zingine',
     statsByCountries: 'Taarifa kwa nchi',
     searchByCountries: 'Tafuta kwa nchi, mfano Tanzania',
