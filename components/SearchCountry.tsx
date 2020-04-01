@@ -1,6 +1,7 @@
 import { useState, useEffect, SyntheticEvent } from 'react';
 import styled from 'styled-components';
-import useCoronaCountries, { ICorona } from '../utils/useCoronaCountries';
+import useCoronaCountries from '../utils/useCoronaCountries';
+import { ICorona } from '../utils/interfaces';
 import { numberWithCommas, displayDate } from '../utils/helpers';
 import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';

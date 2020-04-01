@@ -1,20 +1,5 @@
 import { useEffect, useState } from 'react';
-
-interface ICorona {
-  country?: string;
-  affectedCountries?: number;
-  cases?: number;
-  todayCases?: number;
-  deaths?: number;
-  todayDeaths?: number;
-  recovered?: number;
-  active?: number;
-  critical?: number;
-  updated?: number;
-  countryInfo?: {
-    flag: string;
-  };
-}
+import { ICorona } from './interfaces';
 
 const useCorona = (url: string) => {
   const [corona, setCorona] = useState<ICorona>({});
