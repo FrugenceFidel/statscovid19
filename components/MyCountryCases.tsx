@@ -9,25 +9,25 @@ import { useLanguage } from '../utils/languageContext';
 import data from '../utils/data';
 
 const CountryStyled = styled.div`
-  padding: ${props => props.theme.spacing?.s32} 0
-    ${props => props.theme.spacing?.s48};
+  padding: ${(props) => props.theme.spacing?.s32} 0
+    ${(props) => props.theme.spacing?.s48};
 
   .other {
     margin: 0 auto;
-    margin-top: ${props => props.theme.spacing?.s20};
-    padding: ${props => props.theme.spacing?.s8};
+    margin-top: ${(props) => props.theme.spacing?.s20};
+    padding: ${(props) => props.theme.spacing?.s8};
     display: flex;
     justify-content: center;
     text-decoration: none;
-    border-radius: ${props => props.theme.borderRadius?.default};
-    background: ${props => props.theme.colors?.green.primary};
+    border-radius: ${(props) => props.theme.borderRadius?.default};
+    background: ${(props) => props.theme.colors?.green.primary};
     color: #fff;
-    width: ${props => props.theme.spacing?.s224};
+    width: ${(props) => props.theme.spacing?.s224};
   }
 
-  @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
+  @media screen and (min-width: ${(props) => props.theme.screens?.tablet}) {
     & {
-      padding: ${props => props.theme.spacing?.s64} 0;
+      padding: ${(props) => props.theme.spacing?.s64} 0;
     }
   }
 `;
@@ -45,7 +45,7 @@ const MyCountryCases = (): JSX.Element => {
     active,
     critical,
     otherCountries,
-    error: err
+    error: err,
   } = data[language];
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const MyCountryCases = (): JSX.Element => {
       } else {
         const fetchedCountry: string | any = await fetch(
           'https://ipapi.co/json'
-        ).then(res => res.json());
+        ).then((res) => res.json());
         if (fetchedCountry && fetchedCountry.country_code) {
           localStorage.setItem('myCountryCode', fetchedCountry.country_code);
           setCountry(fetchedCountry.country_code);
@@ -69,7 +69,7 @@ const MyCountryCases = (): JSX.Element => {
   }, []);
 
   const { loading, error, corona } = useCorona(
-    `https://corona.lmao.ninja/countries/${country}`
+    `https://corona.lmao.ninja/v2/countries/${country}`
   );
 
   return (
