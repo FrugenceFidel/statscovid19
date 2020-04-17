@@ -11,11 +11,11 @@ const HeroStyled = styled.main`
   color: white;
 
   .hero-wrapper {
-    padding: ${props => props.theme.spacing?.s48} 0;
+    padding: ${(props) => props.theme.spacing?.s48} 0;
 
-    @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
+    @media screen and (min-width: ${(props) => props.theme.screens?.tablet}) {
       & {
-        padding: ${props => props.theme.spacing?.s64} 0;
+        padding: ${(props) => props.theme.spacing?.s64} 0;
       }
     }
   }
@@ -24,21 +24,23 @@ const HeroStyled = styled.main`
     margin: 0 auto;
 
     h1 {
-      font-size: ${props => props.theme.fontSize?.[30]};
-      line-height: ${props => props.theme.lineHeight?.none};
-      padding-bottom: ${props => props.theme.spacing?.s20};
+      font-size: ${(props) => props.theme.fontSize?.[30]};
+      line-height: ${(props) => props.theme.lineHeight?.none};
+      padding-bottom: ${(props) => props.theme.spacing?.s20};
       text-transform: uppercase;
 
       span {
         text-transform: lowercase;
-        font-size: ${props => props.theme.fontSize?.[16]};
+        font-size: ${(props) => props.theme.fontSize?.[16]};
       }
     }
   }
 `;
 
 const Hero = (): JSX.Element => {
-  const { loading, error, corona } = useCorona('https://corona.lmao.ninja/all');
+  const { loading, error, corona } = useCorona(
+    'https://corona.lmao.ninja/v2/all'
+  );
   const { language } = useLanguage();
   const {
     error: err,
@@ -48,7 +50,7 @@ const Hero = (): JSX.Element => {
     confirmed,
     deaths,
     recovered,
-    active
+    active,
     // affectedCountries
   } = data[language];
 

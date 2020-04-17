@@ -10,10 +10,10 @@ import dataDefn from '../utils/data';
 
 const SearchCountryStyled = styled.div`
   .search-wrapper {
-    padding: ${props => props.theme.spacing?.s32} 0;
+    padding: ${(props) => props.theme.spacing?.s32} 0;
 
     .stats-title {
-      font-size: ${props => props.theme.fontSize?.[20]};
+      font-size: ${(props) => props.theme.fontSize?.[20]};
       text-align: center;
       text-transform: capitalize;
       font-weight: 500;
@@ -21,14 +21,14 @@ const SearchCountryStyled = styled.div`
 
     .desc {
       text-align: center;
-      margin-bottom: ${props => props.theme.spacing?.s20};
+      margin-bottom: ${(props) => props.theme.spacing?.s20};
     }
 
     input {
       width: 100%;
-      padding: ${props => props.theme.spacing?.s8};
-      border: 1px solid ${props => props.theme.colors?.green.primary};
-      border-radius: ${props => props.theme.borderRadius?.default};
+      padding: ${(props) => props.theme.spacing?.s8};
+      border: 1px solid ${(props) => props.theme.colors?.green.primary};
+      border-radius: ${(props) => props.theme.borderRadius?.default};
     }
 
     input:focus {
@@ -38,7 +38,7 @@ const SearchCountryStyled = styled.div`
     .countries-stats {
       display: flex;
       flex-wrap: wrap;
-      margin-top: ${props => props.theme.spacing?.s20};
+      margin-top: ${(props) => props.theme.spacing?.s20};
 
       .country-stats {
         flex: calc(100%) 1;
@@ -46,7 +46,7 @@ const SearchCountryStyled = styled.div`
       }
     }
 
-    @media screen and (min-width: ${props => props.theme.screens?.tablet}) {
+    @media screen and (min-width: ${(props) => props.theme.screens?.tablet}) {
       & {
         .countries-stats {
           justify-content: space-between;
@@ -84,11 +84,11 @@ const SearchCountry = (): JSX.Element => {
     statsByCountries,
     searchByCountries,
     sortedByTDeaths,
-    error: err
+    error: err,
   } = dataDefn[language];
 
   const { loading, error, corona } = useCoronaCountries(
-    'https://corona.lmao.ninja/countries?sort=todayDeaths'
+    'https://corona.lmao.ninja/v2/countries?sort=todayDeaths'
   );
 
   const handleChange = (e: SyntheticEvent): void => {
@@ -98,7 +98,7 @@ const SearchCountry = (): JSX.Element => {
 
   useEffect(() => {
     if (keyword) {
-      const filteredArr = corona.filter(rona => {
+      const filteredArr = corona.filter((rona) => {
         const country = rona.country?.toLowerCase();
 
         if (country?.includes(keyword.toLowerCase())) {
@@ -129,7 +129,7 @@ const SearchCountry = (): JSX.Element => {
             <p>{load}</p>
           ) : (
             <div className="countries-stats">
-              {data.map(rona => (
+              {data.map((rona) => (
                 <div key={rona.country} className="country-stats">
                   <CountryStats>
                     <div className="title">
