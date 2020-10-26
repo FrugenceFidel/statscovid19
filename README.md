@@ -2,7 +2,7 @@
 
 This repository contains simple data monitoring for Covid-19 using Next.js
 
-- [Demo](http://statscovid19.herokuapp.com/)
+- [Demo](https://statscovid19.vercel.app/)
 
 **Feature Include**
 
