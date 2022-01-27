@@ -33,7 +33,7 @@ const data: IData = {
     covidStats: 'COVID-19 Stats',
     lang: 'Language',
     english: 'english',
-    swahili: 'swahili',
+    swahili: 'kiswahili',
     developedBy: 'Developed by',
     dataFrom: 'Data sources from',
     error: 'Error',
@@ -52,12 +52,12 @@ const data: IData = {
     statsByCountries: 'Stats by countries',
     searchByCountries: 'Search by a country e.g Tanzania',
     sortedByTDeaths: "sorted by today's deaths",
-    sourceCode: 'Source code'
+    sourceCode: 'Source code',
   },
   sw: {
     covidStats: 'Taarifa za COVID-19',
     lang: 'Lugha',
-    english: 'kingereza',
+    english: 'english',
     swahili: 'kiswahili',
     developedBy: 'Imetegenezwa na',
     dataFrom: 'Chanzo cha data kutoka kwa',
@@ -77,8 +77,8 @@ const data: IData = {
     statsByCountries: 'Taarifa kwa nchi',
     searchByCountries: 'Tafuta kwa nchi, mfano Tanzania',
     sortedByTDeaths: 'imepangiliwa kulingana na vifo vya leo',
-    sourceCode: 'Chanzo cha msimbo'
-  }
+    sourceCode: 'Chanzo cha msimbo',
+  },
 };
 
 export default data;
