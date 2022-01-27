@@ -68,6 +68,14 @@ const SearchCountryStyled = styled.div`
   }
 `;
 
+const Loading = styled.div`
+  min-height: 40vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const SearchCountry = (): JSX.Element => {
   const [keyword, setKeyword] = useState('');
   const [data, setData] = useState<ICorona[]>([]);
@@ -126,7 +134,7 @@ const SearchCountry = (): JSX.Element => {
           {error ? (
             <p>{err}</p>
           ) : loading ? (
-            <p>{load}</p>
+            <Loading>{load}</Loading>
           ) : (
             <div className="countries-stats">
               {data.map((rona) => (
