@@ -37,6 +37,11 @@ const HeroStyled = styled.main`
   }
 `;
 
+const Loading = styled.div`
+  padding: ${(props) => props.theme.spacing?.s24} 0;
+  text-align: center;
+`;
+
 const Hero = (): JSX.Element => {
   const { loading, error, corona } = useCorona(
     'https://corona.lmao.ninja/v2/all'
@@ -62,7 +67,7 @@ const Hero = (): JSX.Element => {
             {error ? (
               <p>{err}</p>
             ) : loading ? (
-              <p>{load}</p>
+              <Loading>{load}</Loading>
             ) : (
               <>
                 <h1>
