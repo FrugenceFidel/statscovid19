@@ -32,6 +32,14 @@ const CountryStyled = styled.div`
   }
 `;
 
+const Loading = styled.div`
+  min-height: 40vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const MyCountryCases = (): JSX.Element => {
   const [country, setCountry] = useState('TZ');
   const { language } = useLanguage();
@@ -80,7 +88,7 @@ const MyCountryCases = (): JSX.Element => {
             {error ? (
               <p>{err}</p>
             ) : loading ? (
-              <p>{load}</p>
+              <Loading>{load}</Loading>
             ) : (
               <CountryStats>
                 <div className="title">
