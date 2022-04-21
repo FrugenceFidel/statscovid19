@@ -137,60 +137,66 @@ const SearchCountry = (): JSX.Element => {
             <Loading>{load}</Loading>
           ) : (
             <div className="countries-stats">
-              {data.map((rona) => (
-                <div key={rona.country} className="country-stats">
-                  <CountryStats>
-                    <div className="title">
-                      <h2>{rona.country}</h2>
-                      <img src={rona.countryInfo?.flag} alt={rona.country} />
-                    </div>
-                    <ul className="cases">
-                      <li>
-                        {confirmed}:{' '}
-                        <span className="confirmed">
-                          {numberWithCommas(rona.cases)}
-                        </span>
-                      </li>
-                      <li>
-                        {confirmedToday}:{' '}
-                        <span className="confirmed-today">
-                          {numberWithCommas(rona.todayCases)}
-                        </span>
-                      </li>
-                      <li>
-                        {deaths}:{' '}
-                        <span className="deaths">
-                          {numberWithCommas(rona.deaths)}
-                        </span>
-                      </li>
-                      <li>
-                        {deathsToday}:{' '}
-                        <span className="deaths-today">
-                          {numberWithCommas(rona.todayDeaths)}
-                        </span>
-                      </li>
-                      <li>
-                        {active}:{' '}
-                        <span className="active">
-                          {numberWithCommas(rona.active)}
-                        </span>
-                      </li>
-                      <li>
-                        {critical}:{' '}
-                        <span className="critical">
-                          {numberWithCommas(rona.critical)}
-                        </span>
-                      </li>
-                      <li>
-                        {recovered}:{' '}
-                        <span className="recovered">
-                          {numberWithCommas(rona.recovered)}
-                        </span>
-                      </li>
-                    </ul>
-                  </CountryStats>
-                </div>
-              ))}
+              {data.map((rona) => {
+                const flag = `https://corona.lmao.ninja/${
+                  rona?.countryInfo?.flag?.split('https://disease.sh/')[1]
+                }`;
+
+                return (
+                  <div key={rona.country} className="country-stats">
+                    <CountryStats>
+                      <div className="title">
+                        <h2>{rona.country}</h2>
+                        <img src={flag} alt={rona.country} />
+                      </div>
+                      <ul className="cases">
+                        <li>
+                          {confirmed}:{' '}
+                          <span className="confirmed">
+                            {numberWithCommas(rona.cases)}
+                          </span>
+                        </li>
+                        <li>
+                          {confirmedToday}:{' '}
+                          <span className="confirmed-today">
+                            {numberWithCommas(rona.todayCases)}
+                          </span>
+                        </li>
+                        <li>
+                          {deaths}:{' '}
+                          <span className="deaths">
+                            {numberWithCommas(rona.deaths)}
+                          </span>
+                        </li>
+                        <li>
+                          {deathsToday}:{' '}
+                          <span className="deaths-today">
+                            {numberWithCommas(rona.todayDeaths)}
+                          </span>
+                        </li>
+                        <li>
+                          {active}:{' '}
+                          <span className="active">
+                            {numberWithCommas(rona.active)}
+                          </span>
+                        </li>
+                        <li>
+                          {critical}:{' '}
+                          <span className="critical">
+                            {numberWithCommas(rona.critical)}
+                          </span>
+                        </li>
+                        <li>
+                          {recovered}:{' '}
+                          <span className="recovered">
+                            {numberWithCommas(rona.recovered)}
+                          </span>
+                        </li>
+                      </ul>
+                    </CountryStats>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
