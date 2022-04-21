@@ -31,7 +31,7 @@ const HeaderStyled = styled.header`
     color: inherit;
     text-decoration: none;
     font-size: ${(props) => props.theme.fontSize?.[20]};
-    font-family: 'Righteous', cursive;
+    font-family: 'Righteous', sans-serif;
     text-transform: uppercase;
   }
 `;
