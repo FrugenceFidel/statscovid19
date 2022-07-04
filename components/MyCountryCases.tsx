@@ -77,12 +77,8 @@ const MyCountryCases = (): JSX.Element => {
   }, []);
 
   const { loading, error, corona } = useCorona(
-    `https://corona.lmao.ninja/v2/countries/${country}`
+    `https://disease.sh/v3/covid-19/countries/${country}`
   );
-
-  const flag = `https://corona.lmao.ninja/${
-    corona?.countryInfo?.flag?.split('https://disease.sh/')[1]
-  }`;
 
   return (
     <div>
@@ -97,7 +93,7 @@ const MyCountryCases = (): JSX.Element => {
               <CountryStats>
                 <div className="title">
                   <h2>{corona?.country}</h2>
-                  <img src={flag} alt={corona?.country} />
+                  <img src={corona?.countryInfo?.flag} alt={corona?.country} />
                 </div>
                 <ul className="cases">
                   <li>

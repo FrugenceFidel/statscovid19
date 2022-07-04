@@ -44,7 +44,7 @@ const Loading = styled.div`
 
 const Hero = (): JSX.Element => {
   const { loading, error, corona } = useCorona(
-    'https://corona.lmao.ninja/v2/all'
+    'https://disease.sh/v3/covid-19/all'
   );
   const { language } = useLanguage();
   const {
