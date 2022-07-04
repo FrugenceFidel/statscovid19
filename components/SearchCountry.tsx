@@ -96,7 +96,7 @@ const SearchCountry = (): JSX.Element => {
   } = dataDefn[language];
 
   const { loading, error, corona } = useCoronaCountries(
-    'https://corona.lmao.ninja/v2/countries?sort=todayDeaths'
+    'https://disease.sh/v3/covid-19/countries?sort=todayDeaths'
   );
 
   const handleChange = (e: SyntheticEvent): void => {
@@ -138,16 +138,12 @@ const SearchCountry = (): JSX.Element => {
           ) : (
             <div className="countries-stats">
               {data.map((rona) => {
-                const flag = `https://corona.lmao.ninja/${
-                  rona?.countryInfo?.flag?.split('https://disease.sh/')[1]
-                }`;
-
                 return (
                   <div key={rona.country} className="country-stats">
                     <CountryStats>
                       <div className="title">
                         <h2>{rona.country}</h2>
-                        <img src={flag} alt={rona.country} />
+                        <img src={rona?.countryInfo?.flag} alt={rona.country} />
                       </div>
                       <ul className="cases">
                         <li>
