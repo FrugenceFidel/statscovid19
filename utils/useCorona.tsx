@@ -10,8 +10,8 @@ const useCorona = (url: string) => {
     async function getData() {
       setLoading(true);
       const data = await fetch(url)
-        .then(res => res.json())
-        .catch(err => setError(err));
+        .then((res) => res.json())
+        .catch((err) => setError(err));
 
       setCorona(data);
       setLoading(false);
