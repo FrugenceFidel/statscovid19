@@ -11,7 +11,7 @@
   "author": "Frugence",
   "license": "ISC",
   "dependencies": {
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "next": "^12.2.0",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
