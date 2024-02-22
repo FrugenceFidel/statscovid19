@@ -1,3 +1,7 @@
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import { Providers } from '@/utils/contexts/providers';
+
 export const metadata = {
   title: 'COVID-19 STATS',
   description:
@@ -13,7 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {/* <Header /> */}
+          {children}
+          <Footer />
+        </Providers>
+      </body>
     </html>
   );
 }

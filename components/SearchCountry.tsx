@@ -5,7 +5,7 @@ import { ICorona } from '../utils/interfaces';
 import { numberWithCommas } from '../utils/helpers';
 import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
-import { useLanguage } from '../utils/languageContext';
+import { useLanguage } from '../utils/contexts/LanguageContext';
 import dataDefn from '../utils/data';
 
 const SearchCountryStyled = styled.div`

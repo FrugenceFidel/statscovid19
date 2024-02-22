@@ -4,7 +4,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import styled from 'styled-components';
 import Container from './styles/Container';
-import { useLanguage } from '../utils/languageContext';
+import { useLanguage } from '../utils/contexts/LanguageContext';
 import data from '../utils/data';
 
 Router.events.on('routeChangeStart', () => {

@@ -1,31 +1,23 @@
+'use client';
+
 import {
   useState,
   useEffect,
   createContext,
   useContext,
-  FunctionComponent,
   Dispatch,
-  SetStateAction
+  SetStateAction,
+  FC,
 } from 'react';
 
-interface ILanguage {
+type ILanguage = {
   language: string;
   setLanguage: Dispatch<SetStateAction<string>>;
-}
+};
 
-export function createCtx<ContextType>() {
-  const ctx = createContext<ContextType | undefined>(undefined);
-  function useCtx() {
-    const c = useContext(ctx);
-    if (!c) throw new Error('useCtx must be inside a Provider with a value');
-    return c;
-  }
-  return [useCtx, ctx.Provider] as const;
-}
+const LanguageContext = createContext<ILanguage | null>(null);
 
-export const [useLanguage, LanguageContextProvider] = createCtx<ILanguage>();
-
-const LanguageProvider: FunctionComponent = ({ children }) => {
+const LanguageProvider: FC = ({ children }) => {
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {
@@ -36,7 +28,7 @@ const LanguageProvider: FunctionComponent = ({ children }) => {
       } else {
         const fetchedCountry: string | any = await fetch(
           'https://ipapi.co/json'
-        ).then(res => res.json());
+        ).then((res) => res.json());
         if (fetchedCountry && fetchedCountry.country_code === 'TZ') {
           localStorage.setItem('myLanguage', 'sw');
           setLanguage('sw');
@@ -49,11 +41,21 @@ const LanguageProvider: FunctionComponent = ({ children }) => {
     getMyLanguage();
   }, []);
 
+  const value: ILanguage = { language, setLanguage };
+
   return (
-    <LanguageContextProvider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={value}>
       {children}
-    </LanguageContextProvider>
+    </LanguageContext.Provider>
   );
 };
 
-export default LanguageProvider;
+const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('LanguageContext was used outside the LanguageProvider.');
+  }
+  return context;
+};
+
+export { LanguageProvider, useLanguage };

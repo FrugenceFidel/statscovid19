@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Container from './styles/Container';
-import { useLanguage } from '../utils/languageContext';
-import data from '../utils/data';
+import { useLanguage } from '@/utils/contexts/LanguageContext';
+import data from '@/utils/data';
 
 const FooterStyled = styled.footer`
   background: ${(props) => props.theme.colors?.green.primary};
