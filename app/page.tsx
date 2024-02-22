@@ -5,9 +5,8 @@ import MyCountryCases from '@/components/MyCountryCases';
 const Home: FC = () => {
   return (
     <>
-      <p>Home</p>
-      {/* <Hero />
-      <MyCountryCases /> */}
+      <Hero />
+      <MyCountryCases />
     </>
   );
 };

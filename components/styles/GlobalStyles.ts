@@ -17,20 +17,20 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 56%;
 
-    @media screen and (min-width: ${(props) => props.theme.screens?.tablet}) {
+    @media screen and (min-width: ${(props) => props.theme?.screens?.tablet}) {
       & {
         font-size: 58%; 
       }
     }
 
     @media screen and (min-width: ${(props) =>
-      props.theme.screens?.tabletPro}) {
+      props.theme?.screens?.tabletPro}) {
       & {
         font-size: 60%;
       }
     }
 
-    @media screen and (min-width: ${(props) => props.theme.screens?.laptop}) {
+    @media screen and (min-width: ${(props) => props.theme?.screens?.laptop}) {
       & {
         font-size: 62.5%; /* 10px/16px = 62.5% -> 1rem = 10px */
       }
@@ -38,11 +38,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    line-height: ${(props) => props.theme.lineHeight?.normal};
+    line-height: ${(props) => props.theme?.lineHeight?.normal};
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
     font-family: var(--font-quicksand), sans-serif;
-    font-size: ${(props) => props.theme.fontSize?.[16]};
-    color: ${(props) => props.theme.colors?.black.primary};
+    font-size: ${(props) => props.theme?.fontSize?.[16]};
+    color: ${(props) => props.theme?.colors?.black.primary};
     background: #F3F7F9;
     font-weight: 400;
   }

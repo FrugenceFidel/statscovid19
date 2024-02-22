@@ -1,3 +1,5 @@
+'use client';
+
 import styled from 'styled-components';
 import useCorona from '../utils/useCorona';
 import { numberWithCommas, displayDate } from '../utils/helpers';
