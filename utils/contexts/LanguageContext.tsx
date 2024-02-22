@@ -8,6 +8,7 @@ import {
   Dispatch,
   SetStateAction,
   FC,
+  ReactNode,
 } from 'react';
 
 type ILanguage = {
@@ -17,7 +18,7 @@ type ILanguage = {
 
 const LanguageContext = createContext<ILanguage | null>(null);
 
-const LanguageProvider: FC = ({ children }) => {
+const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {

@@ -1,3 +1,5 @@
+'use client';
+
 import { SyntheticEvent } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';

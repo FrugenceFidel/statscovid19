@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import StyledComponentsRegistry from '@/lib/registry';
 import { Providers } from '@/utils/contexts/providers';
 
 export const metadata = {
@@ -18,11 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>
-          {/* <Header /> */}
-          {children}
-          <Footer />
-        </Providers>
+        <StyledComponentsRegistry>
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+'use client';
+
 import styled from 'styled-components';
 import Container from './styles/Container';
 import { useLanguage } from '@/utils/contexts/LanguageContext';
