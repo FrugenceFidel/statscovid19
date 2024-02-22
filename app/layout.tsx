@@ -2,6 +2,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import StyledComponentsRegistry from '@/lib/registry';
 import { Providers } from '@/utils/contexts/providers';
+import GlobalStyles from '@/components/styles/GlobalStyles';
 
 export const metadata = {
   title: 'COVID-19 STATS',
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StyledComponentsRegistry>
+          <GlobalStyles />
           <Providers>
             <Header />
             {children}
