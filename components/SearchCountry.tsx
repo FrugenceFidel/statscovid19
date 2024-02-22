@@ -1,12 +1,14 @@
+'use client';
+
 import { useState, useEffect, SyntheticEvent } from 'react';
 import styled from 'styled-components';
-import useCoronaCountries from '../utils/useCoronaCountries';
-import { ICorona } from '../utils/interfaces';
-import { numberWithCommas } from '../utils/helpers';
+import useCoronaCountries from '@/utils/useCoronaCountries';
+import { ICorona } from '@/utils/interfaces';
+import { numberWithCommas } from '@/utils/helpers';
 import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
-import { useLanguage } from '../utils/languageContext';
-import dataDefn from '../utils/data';
+import { useLanguage } from '@/utils/contexts/LanguageContext';
+import dataDefn from '@/utils/data';
 
 const SearchCountryStyled = styled.div`
   .search-wrapper {

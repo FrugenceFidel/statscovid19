@@ -1,10 +1,12 @@
+'use client';
+
 import { SyntheticEvent } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import styled from 'styled-components';
 import Container from './styles/Container';
-import { useLanguage } from '../utils/languageContext';
+import { useLanguage } from '../utils/contexts/LanguageContext';
 import data from '../utils/data';
 
 Router.events.on('routeChangeStart', () => {
@@ -31,7 +33,7 @@ const HeaderStyled = styled.header`
     color: inherit;
     text-decoration: none;
     font-size: ${(props) => props.theme.fontSize?.[20]};
-    font-family: 'Righteous', sans-serif;
+    font-family: var(--font-righteous), sans-serif;
     text-transform: uppercase;
   }
 `;
@@ -56,9 +58,7 @@ const Header = (): JSX.Element => {
       <Container>
         <div className="header-wrapper">
           <div className="home">
-            <Link href="/">
-              <a>{covidStats}</a>
-            </Link>
+            <Link href="/">{covidStats}</Link>
           </div>
 
           <div>
