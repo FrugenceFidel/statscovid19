@@ -56,9 +56,7 @@ const Header = (): JSX.Element => {
       <Container>
         <div className="header-wrapper">
           <div className="home">
-            <Link href="/">
-              <a>{covidStats}</a>
-            </Link>
+            <Link href="/">{covidStats}</Link>
           </div>
 
           <div>

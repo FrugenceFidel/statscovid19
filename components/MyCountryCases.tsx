@@ -142,8 +142,8 @@ const MyCountryCases = (): JSX.Element => {
               </CountryStats>
             )}
           </div>
-          <Link href="/countries">
-            <a className="other">{otherCountries} 👉</a>
+          <Link href="/countries" className="other">
+            {otherCountries} 👉
           </Link>
         </CountryStyled>
       </Container>
