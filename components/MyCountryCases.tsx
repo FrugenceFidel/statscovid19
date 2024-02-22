@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -5,7 +7,7 @@ import useCorona from '../utils/useCorona';
 import { numberWithCommas } from '../utils/helpers';
 import Container from './styles/Container';
 import CountryStats from './styles/CountryStats';
-import { useLanguage } from '../utils/languageContext';
+import { useLanguage } from '../utils/contexts/LanguageContext';
 import data from '../utils/data';
 
 const CountryStyled = styled.div`
@@ -142,8 +144,8 @@ const MyCountryCases = (): JSX.Element => {
               </CountryStats>
             )}
           </div>
-          <Link href="/countries">
-            <a className="other">{otherCountries} 👉</a>
+          <Link href="/countries" className="other">
+            {otherCountries} 👉
           </Link>
         </CountryStyled>
       </Container>

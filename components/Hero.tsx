@@ -1,9 +1,11 @@
+'use client';
+
 import styled from 'styled-components';
 import useCorona from '../utils/useCorona';
 import { numberWithCommas, displayDate } from '../utils/helpers';
 import Container from './styles/Container';
 import GlobalStats from './styles/GlobalStats';
-import { useLanguage } from '../utils/languageContext';
+import { useLanguage } from '../utils/contexts/LanguageContext';
 import data from '../utils/data';
 
 const HeroStyled = styled.main`
