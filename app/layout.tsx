@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import StyledComponentsRegistry from '@/lib/registry';
 import { Providers } from '@/utils/contexts/providers';
 import GlobalStyles from '@/components/styles/GlobalStyles';
+import { quicksand, righteous } from '@/utils/fonts';
 
 export const metadata = {
   title: 'COVID-19 STATS',
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${quicksand.variable} ${righteous.variable}`}>
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
